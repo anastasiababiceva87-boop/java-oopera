@@ -18,15 +18,26 @@ public class Show {
     }
 
     public void replaceActor(Actor newActor, String surname) {
+        int count = 0;
+        Actor found = null;
+
         for (Actor actor : listOfActors) {
             if (actor.getSurname().equals(surname)) {
-                listOfActors.remove(actor);
-                listOfActors.add(newActor);
-                System.out.println("Актер был заменен");
-                return;
+                count++;
+                found = actor;
             }
         }
-        System.out.println("Актера с такой фамилией нет в списках");
+
+        if (count == 0) {
+            System.out.println("Актера с такой фамилией нет в списках");
+        } else if (count > 1) {
+            System.out.println("Предупреждение: в спектакле несколько актеров с фамилией " + surname
+                    + ", замена не выполнена");
+        } else {
+            listOfActors.remove(found);
+            listOfActors.add(newActor);
+            System.out.println("Актер был заменен");
+        }
     }
 
     public boolean addActor(Actor newActor) {

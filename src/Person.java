@@ -26,6 +26,7 @@ public class Person {
 
     @Override
     public boolean equals(Object object) {
+        if (this == object) return true;
         if (object == null || getClass() != object.getClass()) return false;
         Person person = (Person) object;
         return Objects.equals(name, person.name) && Objects.equals(surname, person.surname);
@@ -35,9 +36,4 @@ public class Person {
     public int hashCode() {
         return Objects.hash(name, surname);
     }
-}
-
-enum Gender {
-    FEMALE,
-    MALE
 }

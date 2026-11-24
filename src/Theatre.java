@@ -43,7 +43,7 @@ public class Theatre {
         System.out.println(ballet);
 
         System.out.println("\n=== Либретто ===");
-        System.out.println(opera.getLibrettoText());
-        System.out.println(ballet.getLibrettoText());
+        opera.printLibretto();
+        ballet.printLibretto();
     }
 }
